@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      color: #333;
+      line-height: 1.6;
+      background-color: #fefefe;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x800/?interior,design') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    section {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .service {
+      flex: 1 1 calc(33% - 20px);
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+      }
+
+      .service {
+        flex: 1 1 100%;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interior Studio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Designing Spaces That Inspire</h2>
+  </div>
+
+  <section id="about">
+    <h3>About Us</h3>
+    <p>We are a creative interior design studio passionate about crafting beautiful and functional living spaces. Our team blends aesthetic design with practical solutions to transform any space into a masterpiece.</p>
+  </section>
+
+  <section id="services">
+    <h3>Our Services</h3>
+    <div class="services">
+      <div class="service">
+        <h4>Residential Design</h4>
+        <p>We specialize in cozy and elegant home interiors tailored to your lifestyle and taste.</p>
+      </div>
+      <div class="service">
+        <h4>Commercial Spaces</h4>
+        <p>Functional and stylish commercial interiors that impress clients and boost productivity.</p>
+      </div>
+      <div class="service">
+        <h4>3D Visualization</h4>
+        <p>Experience your design before it's built with our detailed 3D rendering services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p style="text-align:center;">Ready to transform your space? Let's talk.</p>
+    <p style="text-align:center;">📞 (123) 456-7890 | ✉️ hello@interiorstudio.com</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Interior Studio. All rights reserved.
+  </footer>
+
+</body>
+</html>
