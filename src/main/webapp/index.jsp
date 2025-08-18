@@ -80,7 +80,7 @@
 <div class="product-list">
     <div class="product">
         <img src="images/product1.jpg" alt="Product 1">
-        <h3>Wireless Headphones</h3>
+        <h3>Wireless Headphones for IPhone</h3>
         <p>$59.99</p>
         <button>Add to Cart</button>
     </div>

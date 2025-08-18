@@ -1,0 +1,89 @@
+pipeline {
+    agent {
+        docker {
+            image 'python:3.8'
+            args 'user --root'
+        }
+    }
+    tools {
+        python 'Python-3.8'
+        maven 'Maven-3.6.3'
+    }
+    environment {
+        APP_Version = '1.0.0'
+    }
+    stages {
+        stage('GitCheckout') {
+            steps {
+                // Command 1
+                echo ${env.APP_Version}
+            },
+            steps {
+                // Command 2
+                sh mkdir abc
+                sh yum install nginx -y
+            },
+            steps {
+                git branch: main,
+                git url: "https://github.com/tg-devops-0830.git"
+                credebtials: ""
+
+            }
+        },
+        stage('Build') {
+            steps {
+                // Commands
+                sh 'mvn clean install pakage'
+            }
+        },
+        stage('Install Package') {
+            steps{
+                // Commands
+                Script {
+                    try {
+                        sh 'yum install nginx -y'
+                    }
+                    catch (exception e) {
+                        echo "Inatallation failed .. code continue"
+                    }
+                }
+            }
+        },
+        stage('trigger another pipeline') {
+            steps {
+                build job: 'another-job-name'
+                timeout (time: 200, unit: 'seconds')
+            }
+
+        },
+        stage('Parallel stage') {
+            Parallel {
+                stage ('stageP1') {
+                    steps {
+                        // commands
+                    }
+                }
+                stage('stageP2') {
+                    steps {
+                        // commands
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'This will always run after the pipeline completes.'
+            mail to: 'user@example.com'
+                 subject: "Pipeline ${currentBuild.currentResult}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                 body: "Check console output at ${env.BUILD_URL} to view the results."
+        }
+        success {
+            echo 'This will run only if the pipeline is successful.'
+        }
+        failure {
+            echo 'This will run only if the pipeline fails.'
+        }
+    }
+}
